@@ -24,7 +24,7 @@
     <h1 style='margin-bottom: 0.08in;font-family: "Liberation Serif", serif;font-style: normal;font-weight: normal;text-decoration: none;'><span style="background: transparent; font-family: Arial, Helvetica, sans-serif;">Real-Time Simulation of Interactions Between Fluid and Rigid/Semi-Rigid Solids</span></h1>
     <h3 style="margin-bottom: 0.17in;line-height: 138%;font-style: normal;font-weight: normal;text-decoration: none;"><span style="font-family: 
             Arial, Helvetica, sans-serif;"><span style="background: transparent;">Angela Chen (SID: 3033953901), Peter Generao (SID: 3032631006), <span style="background: transparent;">Riley Lyman (SID: 3032749956)</span></span></span></h3>
-    <hr>
+    <hr><hr>
     <p style="margin-bottom: 0.17in;line-height: 138%;font-style: normal;font-weight: normal;text-decoration: none;"><span style="font-family: 
             Arial, Helvetica, sans-serif;"><br></span></p>
     <h2 style="margin-top: 0.25in; margin-bottom: 0.17in; font-style: normal; font-weight: normal; line-height: 138%; text-decoration: none; text-align: center;"><span style="font-family: 
@@ -256,6 +256,43 @@
         </li>
     </ul>
     <p style="margin-bottom: 0in;line-height: 100%;"><br></p>
+
+<hr><hr><br>
+
+    <h2 style="margin-bottom: 0.17in; line-height: 138%; font-style: normal; font-weight: normal; background: transparent; text-decoration: none; text-align: center;"><span style="font-family: 
+        Arial, Helvetica, sans-serif;"><span style="background: transparent;">Milestone Write-Up</span></span></h2>
+
+<p><span style="font-family: 
+        Arial, Helvetica, sans-serif;"><br></span></p>
+<p dir="ltr" style="line-height:1.38;margin-top:0pt;margin-bottom:0pt;"><span style="font-family: 
+        Arial, Helvetica, sans-serif;"><span style="font-size: 11pt; color: rgb(0, 0, 0); background-color: transparent; font-weight: 400; font-style: normal; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;">Link to slides:&nbsp;</span><a href="https://docs.google.com/presentation/d/1L9GAcgT-tH9n-cxRvn0AYMdtS1d-uJnPyHRgvx3-shI/edit?usp=sharing" style="text-decoration:none;"><span style="font-size: 11pt; color: rgb(17, 85, 204); background-color: transparent; font-weight: 400; font-style: normal; font-variant: normal; text-decoration: underline; text-decoration-skip-ink: none; vertical-align: baseline; white-space: pre-wrap;">https://docs.google.com/presentation/d/1L9GAcgT-tH9n-cxRvn0AYMdtS1d-uJnPyHRgvx3-shI/edit?usp=sharing</span></a><span style="font-size: 11pt; color: rgb(0, 0, 0); background-color: transparent; font-weight: 400; font-style: normal; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;">&nbsp;</span></span></p>
+<p><span style="font-family: 
+        Arial, Helvetica, sans-serif;"><br></span></p>
+<p dir="ltr" style="line-height:1.38;margin-top:0pt;margin-bottom:0pt;"><span style="font-family: 
+        Arial, Helvetica, sans-serif;"><span style="font-size: 11pt; color: rgb(0, 0, 0); background-color: transparent; font-weight: 400; font-style: normal; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;">For our project, we are looking to simulate fluids within a broader game scene and to interact these fluids with objects within the scene. For example, we are interested in rendering effects such as wind rustling through blades of grass, trees bending in the wind, and leaves floating through the air, all in real-time. Over the past week, we have been working hard to implement much of the foundation that our system will use to achieve our goals.&nbsp;</span></span></p>
+<p><span style="font-family: 
+        Arial, Helvetica, sans-serif;"><br></span></p>
+<p dir="ltr" style="line-height:1.38;margin-top:0pt;margin-bottom:0pt;"><span style="font-family: 
+        Arial, Helvetica, sans-serif;"><span style="font-size: 11pt; color: rgb(0, 0, 0); background-color: transparent; font-weight: 400; font-style: normal; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;">To start on our project, we first needed to get a system up and running to render scenes. To this end, we began working on a renderer in OpenGL. Currently, this renderer can load 3D models in most formats and draw them to a window. Then, the user can use their keyboard and mouse to navigate around the scene with our camera system. Finally, we wrote a set of shaders that allows us to render models that contain Blinn-Phong textures as well as PBR textures. &nbsp;</span></span></p>
+<p><span style="font-family: 
+        Arial, Helvetica, sans-serif;"><br></span></p>
+<p dir="ltr" style="line-height:1.38;margin-top:0pt;margin-bottom:0pt;"><span style="font-family: 
+        Arial, Helvetica, sans-serif;"><span style="font-size: 11pt; color: rgb(0, 0, 0); background-color: transparent; font-weight: 400; font-style: normal; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;">The first step in our renderer is model loading. To accomplish this, we use the open-source Assimp model importer library, which allows us to read models in from a specified file path. From this, we generate a Model object that contains a list of Meshes that our system can then render using OpenGL commands. Next, we wrote shaders that can render both Blinn-Phong and PBR materials. Our system reads in these shaders and compiles them using OpenGL. Then, it looks at the materials that Assimp has found for the given models to choose the correct shader to use for each mesh. With model loading and rendering taken care of, we turned our attention to a camera class that allows us to move about the scene. We used the open-source GLM library in order to transform the scene with linear algebra based on the camera position. Finally, we added debugging support to our engine with the ImGUI library, which allows us to render an interactive debug GUI on top of the screen.</span></span></p>
+<p><span style="font-family: 
+        Arial, Helvetica, sans-serif;"><br></span></p>
+<p dir="ltr" style="line-height:1.38;margin-top:0pt;margin-bottom:0pt;"><span style="font-family: 
+        Arial, Helvetica, sans-serif;"><span style="font-size: 11pt; color: rgb(0, 0, 0); background-color: transparent; font-weight: 400; font-style: normal; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;">In addition to these core components of our render engine, we added some optional features that we thought would be useful in the long run. These features include multisample anti-aliasing, rendering of skyboxes, culling of backfaces, high dynamic range, and normal mapping. All of these features will add to the overall quality of our final scenes.</span></span></p>
+<p><span style="font-family: 
+        Arial, Helvetica, sans-serif;"><br></span></p>
+<p dir="ltr" style="line-height:1.38;margin-top:0pt;margin-bottom:0pt;"><span style="font-family: 
+        Arial, Helvetica, sans-serif;"><span style="font-size: 11pt; color: rgb(0, 0, 0); background-color: transparent; font-weight: 400; font-style: normal; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;">Since none of us have any background in physics, it took us a while to parse through our primary source and create a general schematic of what we were to accomplish with respect to the physical simulation. During this first week of our project, we researched more sources on how these grid-based models were implementing the fluid simulations and were able to figure out the necessary components we need to create to properly simulate the fluid.</span></span></p>
+<p><span style="font-family: 
+        Arial, Helvetica, sans-serif;"><br></span></p>
+<p dir="ltr" style="line-height:1.38;margin-top:0pt;margin-bottom:0pt;"><span style="font-family: 
+        Arial, Helvetica, sans-serif;"><span style="font-size: 11pt; color: rgb(0, 0, 0); background-color: transparent; font-weight: 400; font-style: normal; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;">We identified three parts that we need to implement for the physics simulation: the grid-representation of the fluid, solid-information voxelization, and the solid representation. For modeling a fluid, we need to calculate the relevant terms of the Navier-Stokes Equation (advection, diffusion, pressure) via GPU kernels to find point-mass acceleration, update the pressure field according to the Poisson Equation (via GPU kernels), and apply boundary conditions/physical constraints. We are currently in the process of implementing these kernels.</span></span></p>
+<p><span style="font-family: 
+        Arial, Helvetica, sans-serif;"><br></span></p>
+<p dir="ltr" style="line-height:1.38;margin-top:0pt;margin-bottom:0pt;"><span style="font-size: 11pt; font-family: Arial, Helvetica, sans-serif; color: rgb(0, 0, 0); background-color: transparent; font-weight: 400; font-style: normal; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;">As for our next steps, we are working on representing the components of our fluid-grid as 3D textures which we will update in 2D slices using our simulation kernels. We will implement these kernels using OpenGL shaders that run over a quad and write to an intermediate framebuffer. Currently, we are able to write simple compute shaders using this method. Finally, we will be able to take the outputs of these kernels and render the fluid within the scene. We will also be able to use these outputs to apply forces to the objects in the scene. </span></p>
 
 </body>
 </html>
